@@ -15,21 +15,21 @@ import java.io.IOException;
 public class Database {
 
     private String directory;
-    private String name;
+    private String dbName;
 
     public Database() {
     }
 
-    public Database(String directory, String name) throws IOException, RecordsFileException {
+    public Database(String directory, String dbName) throws IOException, RecordsFileException {
         this.directory = directory;
-        this.name = name;
+        this.dbName = dbName;
         File datafile;
         RecordsFile recordsFile;
-        if (!(datafile = new File(directory, name + ".db")).exists()) {
-            recordsFile = new RecordsFile(directory + "/" + name + ".db", 64); //create database
+        if (!(datafile = new File(directory, dbName + ".db")).exists()) {
+            recordsFile = new RecordsFile(directory + "/" + dbName + ".db", 64); //create database
         } else {
             datafile.delete();
-            recordsFile = new RecordsFile(directory + "/" + name + ".db", 64); //recreate
+            recordsFile = new RecordsFile(directory + "/" + dbName + ".db", 64); //recreate
             //recordsFile= new RecordsFile(directory + "/" + name + ".db", "r"); //open database for read
         }
         recordsFile.close();
@@ -39,8 +39,8 @@ public class Database {
         return directory;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
 }
