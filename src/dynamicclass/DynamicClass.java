@@ -35,7 +35,6 @@ public class DynamicClass {
         // TODO code application logic here
         new File("data").mkdirs();
         
-
 //            if (!filedir.exists()) {
 //                filedir.mkdir();
 //            } else {
